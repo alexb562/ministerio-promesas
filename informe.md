@@ -961,6 +961,7 @@ git commit -m "ministros anadidos"
 ```
 
 
+
 2. Añadir una promesa, comprobar los cambios y registrarlos.
 ```sh
 git diff programa.md
@@ -981,6 +982,9 @@ index abd77b7..520ebbf 100644
 git add programa.md
 git commit -m "Anadir nueva promesa electoral"
 ```
+
+
+
 
 3. Recuperar el presupuesto después de una modificación accidental.
 
@@ -1026,8 +1030,8 @@ Ignored files:
 
 
 
-5. Crear la rama `reforma` y fusionarla con `main`.
 
+5. Crear la rama `reforma` y fusionarla con `main`.
 
 ```sh
 git switch -c reforma
@@ -1042,15 +1046,59 @@ git log --oneline --graph --all --decorate
 * 05bf82f (HEAD -> main, reforma) presupuesto de reforma hecho
 ```
 
+
+
 6. Publicar los cambios y comprobar la sincronización.
+```sh
+git add .
+git commit -m "cambios de retos"
+git push origin main
+```
+![alt text](img/retos.png)
+```sh
+git fetch
+git status -sb
+```
+```
+git status -sb
+## main...origin/main
+ M informe.md
+?? img/retos.png
+```
+Está bien porque no he terminado el informe todavía pero todos los demás comandos están en sync.
+
+
+
+
+
+
 7. Mostrar el historial completo con un gráfico de commits.
-
-### Capturas
-
+```sh
+git fetch
+git log --all --graph --oneline --decorate
+```
+```
+* c965cde (HEAD -> main, origin/main, origin/HEAD) cambios de retos
+* 05bf82f (reforma) presupuesto de reforma hecho
+* a4334a6 Anadir nueva promesa electoral
+* e3251b6 ministros anadidos
+* 4168675 El Ministerio sobrevive al cambio de ordenador
+* 96ac72c mensaje de ultimo minuto
+* 9ff439f documentacion oficial del proyecto
+* e73dd21 primer readme includio
+* 88e20cb (oposicion) Programa alternativo de la oposición
+* a60d095 Revert "Aprobado nuevo impuesto sobre los teclados"
+| * d96ab08 (refs/stash) On main: Guardar cambios del README
+|/| 
+| * 4326db6 index on main: 7f879df Aprobado nuevo impuesto sobre los teclados
+|/  
+* 7f879df Aprobado nuevo impuesto sobre los teclados
+* 20e3c08 Creación de departamentos y presupuesto oficial
+* f3f52ea Ampliación del programa con medidas revolucionarias
+* 03499f8 Economía limita los lunes festivos
+* 799ade1 Primer programa electoral de Gitlandia
+```
 ---
 
 ## Conclusión
-
-## Repositorio de GitHub
-
-## Referencias
+En esta actividad aprendí a usar Git para guardar cambios, recuperar archivos, trabajar con ramas y sincronizar mi proyecto con GitHub. También practiqué cómo revisar el estado del repositorio y ver el historial de commits.
