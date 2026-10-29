@@ -15,3 +15,10 @@ Presidente: Don Commit Permanente
 ## Lema
 
 "Prometemos hasta que se llene el disco duro".
+
+## Nuevas medidas
+
+6. Un unicornio eléctrico para cada familia.
+7. Internet gratuito incluso dentro de los túneles.
+8. Los atascos serán declarados ilegales.
+9. Se eliminarán los errores 404 por decreto.
