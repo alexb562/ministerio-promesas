@@ -780,27 +780,167 @@ git push -u origin main
 Establece una conexión entre la rama local y la rama remota
 
 ### Paso 24. Comprobar la publicación
+![Repositorio en github](img/github.png)
+No se ha publicado el directorio de secretos.
 
 ### Paso 25. Crear un README para los visitantes
+Crea en local:
+```
+# Ministerio de las Promesas Imposibles
 
-### Capturas
+Bienvenido al repositorio oficial del Gobierno
+de Gitlandia.
 
----
+## Objetivo
+
+Aprender Git mediante un programa electoral
+ficticio que cambia constantemente.
+
+## Archivos
+
+- programa.md: Programa electoral oficial.
+- oposicion.md: Propuestas de la oposición.
+- economia/: Presupuestos.
+- comunicacion/: Comunicados oficiales.
+
+## Tecnología
+
+- Linux
+- Git
+- GitHub
+- Markdown
+
+## Advertencia
+
+Todos los personajes y propuestas son ficticios.
+
+Proyecto educativo individual.
+```
+Manda los cambios
+```sh
+git add README.md
+
+git commit -m "Documentación oficial del repositorio"
+
+git push
+```
+![alt text](img/github.png)
 
 ## Fase 10. Sincronización y clonación
 
 ### Paso 26. Simular una modificación desde otro ordenador
+Entra en GitHub y hacer una edición directamente desde el browser poniendo
+```
+## Comunicado de última hora
+
+El ministro anuncia que se estudiará
+la posibilidad de cumplir alguna promesa.
+```
 
 ### Paso 27. Descargar los cambios
+```sh
+git fetch origin
+```
+y comprobar los cambios
+
+```sh
+git log --oneline HEAD..origin/main
+```
+```
+96ac72c (origin/main, origin/HEAD) mensaje de ultimo minuto
+```
+- Se ve que ha visto el cambio el remoto que es diferente de lo que tenemos en local. Fetch descarga los commits pero no cambia nada en la rama. Pull integra los cambios y push empuje los cambios a remoto.
+
+![alt text](img/ultimoMinuto.png)
 
 ### Paso 28. Clonar el proyecto en otro directorio
 
+```sh
+cd ~/proyectos-git
+mkdir ordenador-nuevo
+cd ordenador-nuevo
+```
+
+y clonar en el directiorio 
+```sh
+git clone https://github.com/alexb562/ministerio-promesas.git
+```
+![alt text](img/clonar.png)
+- Se ha clonado todos los archivos que no están en el gitignore.
+
 ### Última misión
+En el directorio clonado añade esto al README
+```
+El Ministerio sobrevive al cambio de ordenador
+```
+Hacer el commit y push
+```sh
+git add README.md
 
-### Preguntas
-- ¿Qué diferencia existe entre `git fetch`, `git pull` y `git push`?
+git commit -m "El Ministerio sobrevive al cambio de ordenador"
 
-### Capturas
+git push
+```
+Volver al repo original y hacer
+```sh
+git pull --ff-only
+```
+```
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 333 bytes | 333.00 KiB/s, done.
+From https://github.com/alexb562/ministerio-promesas
+   96ac72c..4168675  main       -> origin/main
+Updating 96ac72c..4168675
+Fast-forward
+ README.md | 3 +++
+ 1 file changed, 3 insertions(+)
+```
+```sh
+cat README.md
+```
+```
+# Ministerio de las Promesas Imposibles
+
+Bienvenido al repositorio oficial del Gobierno
+de Gitlandia.
+
+## Objetivo
+
+Aprender Git mediante un programa electoral
+ficticio que cambia constantemente.
+
+## Archivos
+
+- programa.md: Programa electoral oficial.
+- oposicion.md: Propuestas de la oposición.
+- economia/: Presupuestos.
+- comunicacion/: Comunicados oficiales.
+
+## Tecnología
+
+- Linux
+- Git
+- GitHub
+- Markdown
+
+## Advertencia
+
+Todos los personajes y propuestas son ficticios.
+
+Proyecto educativo individual.
+
+## Comunicado de última hora
+
+El ministro anuncia que se estudiará
+la posibilidad de cumplir alguna promesa.
+
+
+El Ministerio sobrevive al cambio de ordenador% 
+```
+El documento con el último cambio está allí.
 
 ---
 
@@ -808,13 +948,13 @@ Establece una conexión entre la rama local y la rama remota
 
 ### Misiones finales
 
-- [ ] Crear `ministros.md` y registrar un commit.
-- [ ] Añadir una promesa, comprobar los cambios y registrarlos.
-- [ ] Recuperar el presupuesto después de una modificación accidental.
-- [ ] Comprobar que Git ignora `discurso.tmp`.
-- [ ] Crear la rama `reforma` y fusionarla con `main`.
-- [ ] Publicar los cambios y comprobar la sincronización.
-- [ ] Mostrar el historial completo con un gráfico de commits.
+1. Crear `ministros.md` y registrar un commit.
+2. Añadir una promesa, comprobar los cambios y registrarlos.
+3. Recuperar el presupuesto después de una modificación accidental.
+4. Comprobar que Git ignora `discurso.tmp`.
+5. Crear la rama `reforma` y fusionarla con `main`.
+6. Publicar los cambios y comprobar la sincronización.
+7. Mostrar el historial completo con un gráfico de commits.
 
 ### Capturas
 
