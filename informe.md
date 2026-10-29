@@ -949,10 +949,99 @@ El documento con el último cambio está allí.
 ### Misiones finales
 
 1. Crear `ministros.md` y registrar un commit.
+```sh
+git log --oneline
+```
+```
+e3251b6 (HEAD -> main) ministros anadidos
+```
+```sh
+git add ministros.md
+git commit -m "ministros anadidos"
+```
+
+
 2. Añadir una promesa, comprobar los cambios y registrarlos.
+```sh
+git diff programa.md
+```
+```
+diff --git a/programa.md b/programa.md
+index abd77b7..520ebbf 100644
+--- a/programa.md
++++ b/programa.md
+@@ -22,3 +22,4 @@ Presidente: Don Commit Permanente
+ 7. Internet gratuito incluso dentro de los túneles.
+ 8. Los atascos serán declarados ilegales.
+ 9. Se eliminarán los errores 404 por decreto.
++10. NUEVO AÑADIDO - TENDREMOS MÁS PROYECTOS
+\ No newline at end of file
+```
+```sh
+git add programa.md
+git commit -m "Anadir nueva promesa electoral"
+```
+
 3. Recuperar el presupuesto después de una modificación accidental.
+
+```sh
+git status
+```
+```
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   economia/presupuesto.txt
+        modified:   informe.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+```sh
+ git restore economia/presupuesto.txt 
+ ```
+```sh
+git status
+```
+```
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   informe.md
+```
+
+
+
+
 4. Comprobar que Git ignora `discurso.tmp`.
+```sh
+git status --ignored
+```
+```
+Ignored files:
+  (use "git add -f <file>..." to include in what will be committed)
+        discurso.tmp
+        secretos/
+```
+
+
+
 5. Crear la rama `reforma` y fusionarla con `main`.
+
+
+```sh
+git switch -c reforma
+touch presupuestoReforma.md
+git add presupuestoReforma.md
+git commit -m "presupuesto de reforma hecho"
+git switch main
+git merge reforma
+git log --oneline --graph --all --decorate
+```
+```
+* 05bf82f (HEAD -> main, reforma) presupuesto de reforma hecho
+```
+
 6. Publicar los cambios y comprobar la sincronización.
 7. Mostrar el historial completo con un gráfico de commits.
 
