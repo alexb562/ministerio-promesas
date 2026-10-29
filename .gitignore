@@ -1,0 +1,11 @@
+# Documentos internos ficticios
+secretos/
+
+# Archivos temporales
+*.tmp
+
+# Copias de seguridad
+*.bak
+
+# Configuraciones locales
+.env
